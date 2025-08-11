@@ -1,0 +1,58 @@
+doctype html 
+html
+    head 
+        title Places 
+        meta(name="viewport", content="width=device-width,initial-scale=1")
+        link(rel="stylesheet", href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css")
+        //To be honest I am still confused why removing the 'integrity' and 'cross origin' for the leaflet script makes it work
+        //Your sample code doesnt have it but the leaflet quick start guide does have them
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC",crossorigin="anonymous")
+        
+        style.
+            #map-container {
+                position: relative;
+                height: 700px;
+                margin-bottom: 5rem;
+            }
+            #map {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                border: 2px solid red;
+                //Border added in testing if #map-conatainer and #map were working without leaflet working
+                //This was before i used developer tools and without leaflet working it was an empy square with a red border
+            }
+            tr {
+                cursor: pointer;
+            }
+    body 
+
+        .container 
+            h1.mt-3 Places 
+
+            form.form
+                .mb-3 
+                    label(for="label") Label 
+                    input#label.form-control(type='text')
+                .mb-3 
+                    label(for="address") Address 
+                    input#address.form-control(type='text')
+                button.btn.btn-primary(type='button', onclick='addPlace()') Add Place
+            
+            #map-container
+                #map
+
+            table.table 
+                thead   
+                    tr  
+                        th Label 
+                        th Address 
+                        th 
+                tbody
+
+        script(src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js")
+        //same as comment for previous leaflet
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js", integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM", crossorigin="anonymous")
+        script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
+        script(src="/places.js")
